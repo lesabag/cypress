@@ -1,0 +1,11 @@
+{
+  "baseUrl": "https://airbnb.com/",
+  "screenshotsFolder": "cypress/screenshots",
+  "videosFolder": "cypress/videos",
+  "chromeWebSecurity": false,
+  "viewportHeight": 1200,
+  "viewportWidth": 1800,
+  "defaultCommandTimeout": 10000,
+  "pageLoadTimeout": 20000,
+  "videoUploadOnPasses": false
+}
