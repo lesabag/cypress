@@ -1,0 +1,7 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <ErlangCodeStyleSettings>
+      <option name="EXPRESSION_IN_CLAUSE_WRAP" value="0" />
+    </ErlangCodeStyleSettings>
+  </code_scheme>
+</component>
