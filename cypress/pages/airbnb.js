@@ -26,7 +26,7 @@ const MONTH = {
 
 export const guestsType = {
     INFANTS: 'INFANTS',
-    ADULT: 'ADULT'
+    ADULTS: 'ADULTS'
 };
 
 // Functions:
@@ -35,7 +35,7 @@ export const selectLocation = (locationName, locationExist) => {
     let listSize=0;
     cy.get(airbnbElements.LOCATION).type(locationName, { force: true }).then(() => {
         //let promise = Promise.reject(new Error('ERROR WHILE SELECTING LOCATION'));
-        if (locationExist == "True") {
+        if (locationExist) {
             cy.get(airbnbElements.LOCATION_LIST_BOX).should(($p) => {
                 listSize = $p.length;
                 expect($p).to.have.length(listSize)
@@ -89,14 +89,14 @@ export const selectDates = (year, month, startDate, endDate) => {
 export const selectGuests = (type) => {
     cy.get(airbnbElements.GUESTS).click({ force: true });
 
-    if (type === guestsType.INFANTS) {
+    if (type === guestsType.INFANTS.toLowerCase()) {
         cy.get(airbnbElements.INFANTS_PLUS_BUTTON).click({ force: true });
         cy.get(airbnbElements.INFANTS_COUNTER_LABEL).then(($label) => {
             expect($label[0].innerText).to.have.string('1')
         })
     }
 
-    if (type === guestsType.ADULT) {
+    if (type === guestsType.ADULTS.toLowerCase()) {
         cy.get(airbnbElements.ADULT_PLUS_BUTTON).click({force: true});
         cy.get(airbnbElements.ADULT_COUNTER_LABEL).then(($label) => {
             const counter = values($label).map(o => o.textContent)[1]
@@ -106,9 +106,10 @@ export const selectGuests = (type) => {
 
 };
 
-export const validateLandingPage = (countryName, month, startDate, endDate) => {
-    const name = countryName.split(',');
+export const validateLandingPage = (rideObj) => {
+    //const name = countryName.split(',');
+    const name = rideObj.country_.split(',');
     cy.url().should('include', name[0]) ;
     cy.contains('Stays in ' + name[0]);
-    cy.contains(month.substring(0,3) + ' ' + startDate + ' - ' + endDate + ' · 1 guest');
+    cy.contains(rideObj.month_.substring(0,3) + ' ' + rideObj.startDate + ' - ' + rideObj.endDate + ' · 1 guest');
 };

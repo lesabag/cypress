@@ -1,0 +1,21 @@
+[
+    {
+        "year_": "2021",
+        "month_": "February",
+        "startDate": "10",
+        "endDate": "20",
+        "country_": "Paris, France",
+        "guestType": "infants",
+        "second_country": "Tel Aviv",
+        "isLocationExist": true
+    },
+    {
+        "year_": "2021",
+        "month_": "February",
+        "startDate": "12",
+        "endDate": "27",
+        "country_": "Paris, France",
+        "guestType": "adults",
+        "isLocationExist": true
+    }
+]
